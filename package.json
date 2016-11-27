@@ -1,0 +1,15 @@
+{
+    "name": "twumpr",
+    "version": "1.0.0",
+    "description": "A website that analyzes a bunch of Trump's tweets",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Youssef Swailem",
+    "license": "ISC",
+    "dependencies": {
+
+    }
+
+}
