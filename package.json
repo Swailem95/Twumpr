@@ -1,6 +1,9 @@
 {
   "name": "twumpr",
   "version": "1.0.0",
+  "engines": {
+   "node": "5.7.1"
+ },
   "description": "A website that analyzes a bunch of Trump's tweets",
   "main": "server.js",
   "scripts": {
