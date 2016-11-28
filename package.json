@@ -1,16 +1,15 @@
 {
-    "name": "twumpr",
-    "version": "1.0.0",
-    "description": "A website that analyzes a bunch of Trump's tweets",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "nodemon index.js"
-    },
-    "author": "Youssef Swailem",
-    "license": "ISC",
-    "dependencies": {
-
-    }
-
+  "name": "twumpr",
+  "version": "1.0.0",
+  "description": "A website that analyzes a bunch of Trump's tweets",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "Youssef Swailem",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
 }

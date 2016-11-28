@@ -1,0 +1,43 @@
+<html ng-controller = "mainCtrl">
+
+<h1 style="color: white; font-family:font-family: calibri;font-size:90px; text-align: center">
+    Twumpr
+</h1>
+
+<br />
+
+<h5 style="color: white; font-family:font-family: calibri;font-size:25px; text-align: center">
+    A website that analyzes a "yuuuge" number of Trump's tweets
+</h5>
+
+<br /><br /><br /><br />
+
+
+<div class="z-depth-5"
+style="margin: auto; max-width: 550px; overflow: scroll;">
+
+<ul class="collection with-header" sytle = "overflow:hidden; overflow-y:scroll;">
+    <li class="collection-header"><h4>Top 20 Most Used Words</h4></li>
+    <li class="collection-item" ng-repeat = "word in words">{{word}}</li>
+
+</ul>
+
+</div>
+
+
+
+
+
+<!-- <h5 style="color: white; font-family:font-family: calibri;font-size:16px; text-align: center">
+What the people are saying
+</h5>
+<br />
+<div style = "text-align: center">
+<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/search?q=trump%20%23trump%20OR%20%23trump2016%20%40realdonaldtrump" data-widget-id="803013365228564480"></a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div> -->
+
+
+
+
+</html>
