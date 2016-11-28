@@ -12,20 +12,58 @@
 
 <br /><br /><br /><br />
 
+<container style = "margin-left: 47%;" ng-show = "!done">
+    <div class="preloader-wrapper big active" >
+        <div class="spinner-layer spinner-orange-only">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
+    <br /><br /><br />
+    <h3 style="color: white; font-family:font-family: calibri;font-size:17px; text-align: center">
+        Analyzing Twumps
+    </h3>
+
+</container>
+
 
 <div class="z-depth-5"
-style="margin: auto; max-width: 550px; overflow: scroll;">
+style="margin: auto; max-width: 550px; overflow: scroll; overflow-y:scroll" ng-show = "done">
 
-<ul class="collection with-header" sytle = "overflow:hidden; overflow-y:scroll;">
+<ul class="collection with-header" style = "overflow:hidden; overflow-y:scroll;">
     <li class="collection-header"><h4>Top 20 Most Used Words</h4></li>
     <li class="collection-item" ng-repeat = "word in words">{{word}}</li>
+</ul>
 
+</div>
+
+<br /><br />
+
+<div class="z-depth-5"
+style="margin: auto; max-width: 550px; overflow: scroll; overflow-y:scroll" ng-show = "done">
+
+<ul class="collection with-header" style = "overflow:hidden; overflow-y:scroll;">
+    <li class="collection-header"><h4>Top 10 Most Used Hashtags</h4></li>
+    <li class="collection-item" ng-repeat = "hashtag in hashtags">{{hashtag}}</li>
 </ul>
 
 </div>
 
 
+<div class="z-depth-5"
+style="margin: auto; max-width: 550px; overflow: scroll; overflow-y:scroll" ng-show = "done">
 
+<ul class="collection with-header" style = "overflow:hidden; overflow-y:scroll;">
+    <li class="collection-header"><h4>Top 10 Most Mentioned Users</h4></li>
+    <li class="collection-item" ng-repeat = "mention in mentions">{{mention}}</li>
+</ul>
+
+</div>
 
 
 <!-- <h5 style="color: white; font-family:font-family: calibri;font-size:16px; text-align: center">
