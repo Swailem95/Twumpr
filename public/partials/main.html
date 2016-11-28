@@ -10,7 +10,7 @@
     A website that analyzes a "yuuuge" number of Trump's tweets
 </h5>
 
-<br /><br /><br /><br />
+<br /><br /><br />
 
 <container style = "margin-left: 47%;" ng-show = "!done">
     <div class="preloader-wrapper big active" >
@@ -25,57 +25,70 @@
         </div>
     </div>
     <br /><br /><br />
-    <h3 style="color: white; font-family:font-family: calibri;font-size:17px; text-align: center">
+    <h3 style="color: white; font-family:font-family: calibri;font-size:17px; text-align: center; margin-left: -1%">
         Analyzing Twumps
     </h3>
 
 </container>
 
+<div ng-show = "done">
 
-<div class="z-depth-5"
-style="margin: auto; max-width: 550px;" ng-show = "done">
 
-<ul class="collection with-header">
-    <li class="collection-header"><h4>Top 20 Most Used Words</h4></li>
-    <li class="collection-item" ng-repeat = "word in words">{{word}}</li>
-</ul>
+
+    <div class="z-depth-5"
+    style="margin: auto; max-width: 550px;">
+
+    <ul class="collection with-header">
+        <li class="collection-header"><h4>Top 20 Most Used Words</h4></li>
+        <li class="collection-item" ng-repeat = "word in words">{{word}}</li>
+    </ul>
 
 </div>
 
-<br /><br />
+<br />
 
 <div class="z-depth-5"
-style="margin: auto; max-width: 550px;" ng-show = "done">
+style="margin: auto; max-width: 550px;">
 
 <ul class="collection with-header">
     <li class="collection-header"><h4>Top 10 Most Used Hashtags</h4></li>
-    <li class="collection-item" ng-repeat = "hashtag in hashtags">{{hashtag}}</li>
+    <li class="collection-item" ng-repeat = "hashtag in hashtags">
+        <a ng-href = "{{hashtag[1]}}">
+            {{hashtag[0]}}
+        </a>
+    </li>
 </ul>
 
 </div>
 
+<br />
 
 <div class="z-depth-5"
-style="margin: auto; max-width: 550px;" ng-show = "done">
+style="margin: auto; max-width: 550px;">
 
 <ul class="collection with-header">
     <li class="collection-header"><h4>Top 10 Most Mentioned Users</h4></li>
-    <li class="collection-item" ng-repeat = "mention in mentions">{{mention}}</li>
+    <li class="collection-item" ng-repeat = "mention in mentions">
+        <a ng-href = "{{mention[1]}}">
+            {{mention[0]}}
+        </a>
+    </li>
 </ul>
 
 </div>
 
+<br />
 
 <!-- <h5 style="color: white; font-family:font-family: calibri;font-size:16px; text-align: center">
-What the people are saying
+    What the people are saying
 </h5>
 <br />
 <div style = "text-align: center">
-<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/search?q=trump%20%23trump%20OR%20%23trump2016%20%40realdonaldtrump" data-widget-id="803013365228564480"></a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/search?q=trump%20%23trump%20OR%20%23trump2016%20%40realdonaldtrump" data-widget-id="803013365228564480"></a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </div> -->
 
 
-
+</div>
 
 </html>

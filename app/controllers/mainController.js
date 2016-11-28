@@ -1,5 +1,6 @@
 var Twitter = require('twitter');
 var _ = require('lodash');
+var request = require('request');
 
 var client = new Twitter({
     consumer_key: '0f2jWgY3vEesEKFqX5mJELrZr',
@@ -7,8 +8,6 @@ var client = new Twitter({
     access_token_key: '',
     access_token_secret: ''
 });
-
-var trumpTweets = [];
 
 var mostUsedWords = [];
 var hashtags = [];
@@ -25,14 +24,6 @@ module.exports.getTweets = function(req, res){
         if (!error) {
 
             for(var i = 0; i < tweets.length; i++){
-
-                trumpTweets[i] = {
-                    id: tweets[i].id_str,
-                    created_at : tweets[i].created_at,
-                    text: tweets[i].text,
-                    retweets: tweets[i].retweet_count,
-                    favorites: tweets[i].favorite_count,
-                }
 
                 var mentionsInTweet = tweets[i].text.match(/\B@[a-z0-9_-]+/gi);
                 var hashtagsInTweet =  tweets[i].text.match(/\B#[a-z0-9_-]+/gi);
@@ -59,9 +50,46 @@ module.exports.getTweets = function(req, res){
                 return a.retweet_count < b.retweet_count;
             });
 
+
+
+            // sortedByRetweets = sortedByRetweets.map(function(a){
+            //
+            //     var id = a.id_str;
+            //     var url = "http://publish.twitter.com/oembed?url=";
+            //     var url2 = "https%3A%2F%2Ftwitter.com%2Frealdonaldtrump%2Fstatus%2F" + id;
+            //     url += url2;
+            //
+            //     request(url, function (error, response, body) {
+            //         if (!error && response.statusCode == 200) {
+            //             a.embeddedHTML = JSON.parse(body).html;
+            //             return a;
+            //         }
+            //
+            //     });
+            //
+            // });
+
+
             sortedByFavs = tweets.sort(function(a, b){
                 return a.favourite_count < b.favourite_count;
             });
+
+
+            // sortedByFavs = sortedByFavs.map(function(a){
+            //
+            //     var id = a.id_str;
+            //     var url = "http://publish.twitter.com/oembed?url=";
+            //     var url2 = "https%3A%2F%2Ftwitter.com%2Frealdonaldtrump%2Fstatus%2F" + id;
+            //     url += url2;
+            //
+            //     request(url, function (error, response, body) {
+            //         if (!error && response.statusCode == 200) {
+            //             a.embeddedHTML = JSON.parse(body).html;
+            //             return a;
+            //         }
+            //     })
+            //
+            // });
 
         }
 
@@ -74,13 +102,22 @@ module.exports.getTweets = function(req, res){
         hashtags = _.uniq(hashtags);
         mentions = _.uniq(mentions);
 
+        mentions = mentions.map(function(a){
+            return [a, "https://twitter.com/" + a.substring(1)];
+        });
+
+        hashtags = hashtags.map(function(a){
+            return [a, "https://twitter.com/hashtag/" + a.substring(1)];
+        })
 
 
         res.json({
             count: tweets.length,
             words: _.take(mostUsedWords, 20),
             mentions: _.take(mentions, 10),
-            hashtags: _.take(hashtags, 10)
+            hashtags: _.take(hashtags, 10),
+            topRetweets: _.take(sortedByRetweets, 5),
+            topFavs: _.take(sortedByFavs, 5)
         });
 
     });

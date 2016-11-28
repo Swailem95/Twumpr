@@ -2,8 +2,8 @@
   "name": "twumpr",
   "version": "1.0.0",
   "engines": {
-   "node": "5.7.1"
- },
+    "node": "5.7.1"
+  },
   "description": "A website that analyzes a bunch of Trump's tweets",
   "main": "server.js",
   "scripts": {
@@ -16,6 +16,7 @@
     "express": "^4.14.0",
     "lodash": "^4.17.2",
     "nodemon": "^1.11.0",
+    "request": "^2.79.0",
     "twitter": "^1.4.0"
   }
 }
