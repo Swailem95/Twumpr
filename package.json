@@ -8,7 +8,9 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "author": "Youssef Swailem",
   "license": "ISC",
@@ -17,6 +19,8 @@
     "lodash": "^4.17.2",
     "nodemon": "^1.11.0",
     "request": "^2.79.0",
-    "twitter": "^1.4.0"
-  }
+    "twitter": "^1.4.0",
+    "snyk": "^1.316.1"
+  },
+  "snyk": true
 }
